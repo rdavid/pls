@@ -28,10 +28,15 @@ module Pls
         DIC.each { |f, p, d, t, k| o.on(f, p, t, d) { |i| @options[k] = i } }
         add(o)
       end.parse!
+      raise 'Please specify a package name.' if pac.nil?
     end
 
-    def dir
+    def pac
       @options[:pac]
+    end
+
+    def url
+      'https://registry.npmjs.org'
     end
   end
 end

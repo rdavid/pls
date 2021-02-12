@@ -10,7 +10,8 @@ module Pls
       @beg = Time.now.to_i
     end
 
-    def do
+    def do(con)
+      puts con
       puts "Done in #{Time.now.to_i - @beg}."
     end
   end
