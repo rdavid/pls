@@ -9,7 +9,8 @@ require_relative '../lib/pls/pls'
 # Main functions.
 class TestPls < Minitest::Test
   def setup
-    @pls = Pls.new
+    ARGV << '-pexpress'
+    @pls = Pls::Pls.new
   end
 
   def test_pls
