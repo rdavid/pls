@@ -23,9 +23,11 @@ module Pls
     def initialize
       @cfg = Configurator.new
       @rep = Reporter.new
+      @dat = {}
+      @mut_dat = Mutex.new
     end
 
-    def read(pac)
+    def read_http(pac)
       url = "#{@cfg.url}/#{pac}/latest"
       res = HTTParty.get(url)
       raise "Unable to continue with #{url}." unless res.code == 200
@@ -47,11 +49,26 @@ module Pls
       arr
     end
 
+    # Consider time validation for cache data.
+    def read_cache(pac)
+      arr = []
+      @mut_dat.synchronize { arr = @dat[pac] }
+      arr
+    end
+
+    def write_cache(pac, arr)
+      @mut_dat.synchronize { @dat[pac] = arr }
+    end
+
     def build(pac)
-      str = read(pac)
-      doc = JSON.parse(str)
-      dep = doc['dependencies']
-      arr = dep.to_a.empty? ? [] : build_dep(dep)
+      arr = read_cache(pac)
+      if arr.to_a.empty?
+        str = read_http(pac)
+        doc = JSON.parse(str)
+        dep = doc['dependencies']
+        arr = dep.to_a.empty? ? [] : build_dep(dep)
+        write_cache(pac, arr)
+      end
       { pac => arr }
     end
 
