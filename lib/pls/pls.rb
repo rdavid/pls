@@ -33,9 +33,17 @@ module Pls
       res.body
     end
 
-    def build_dep(dep)
+    def build_dep(dep) # rubocop:disable Metrics/MethodLength
       arr = []
-      dep.to_a.empty? || dep.each_key { |sub| arr.push(build(sub)) }
+      threads = []
+      mut = Mutex.new
+      dep.each_key do |pac|
+        threads << Thread.new(pac, arr) do |p, a|
+          dat = build(p)
+          mut.synchronize { a << dat }
+        end
+      end
+      threads.each(&:join)
       arr
     end
 
@@ -43,7 +51,8 @@ module Pls
       str = read(pac)
       doc = JSON.parse(str)
       dep = doc['dependencies']
-      { pac => build_dep(dep) }
+      arr = dep.to_a.empty? ? [] : build_dep(dep)
+      { pac => arr }
     end
 
     def do
