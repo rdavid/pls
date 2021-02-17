@@ -9,12 +9,20 @@ require_relative 'configurator'
 require_relative 'reporter'
 
 module Pls
-  # Main functionality.
+  # Data structure is hash, key - package name, val - array of hashes:
+  # {
+  #   aaa => [
+  #            bbb => [],
+  #            ccc => [
+  #                     ddd => [],
+  #                     eee => []
+  #                   ]
+  #          ]
+  # }
   class Pls
     def initialize
       @cfg = Configurator.new
       @rep = Reporter.new
-      @dat = [@cfg.pac]
     end
 
     def read(pac)
@@ -25,13 +33,21 @@ module Pls
       res.body
     end
 
-    def do
-      str = read(@cfg.pac)
+    def build_dep(dep)
+      arr = []
+      dep.to_a.empty? || dep.each_key { |sub| arr.push(build(sub)) }
+      arr
+    end
+
+    def build(pac)
+      str = read(pac)
       doc = JSON.parse(str)
-      doc['dependencies'].each do |pac|
-        @dat.push(pac[0])
-      end
-      @rep.do(@dat)
+      dep = doc['dependencies']
+      { pac => build_dep(dep) }
+    end
+
+    def do
+      @rep.do(build(@cfg.pac))
     end
   end
 end

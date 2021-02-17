@@ -10,9 +10,17 @@ module Pls
       @beg = Time.now.to_i
     end
 
-    def do(con)
-      puts con
-      puts "Done in #{Time.now.to_i - @beg}."
+    def out(pac, del)
+      key = pac.keys[0]
+      del.times { print ' ' }
+      print key
+      puts "\n"
+      pac[key].each { |sub| out(sub, del + 2) }
+    end
+
+    def do(dat)
+      out(dat, 0)
+      puts "Done in #{Time.now.to_i - @beg} seconds."
     end
   end
 end
