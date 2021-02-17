@@ -4,6 +4,6 @@
 # Copyright 2021 by David Rabkin
 
 module Pls
-  VERSION = '1.0.1'
-  DATE = '2021-02-12'
+  VERSION = '1.0.2'
+  DATE = '2021-02-17'
 end
