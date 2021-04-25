@@ -51,5 +51,5 @@ Use this command to update the package:
     pls -p express
 
 ## License
-Pls is copyright [David Rabkin](http://davi.drabk.in) and
+Pls is copyright [David Rabkin](http://cv.rabkin.co.il) and
 available under a [Zero-Claus BSD license](https://github.com/rdavid/pls/blob/master/LICENSE).
