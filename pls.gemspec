@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.executables = ['pls']
   s.extra_rdoc_files = ['LICENSE', 'README.md']
   s.require_paths = ['lib']
-  s.add_runtime_dependency 'httparty', '0.18.1'
+  s.add_runtime_dependency 'httparty', '0.21.0'
   s.add_runtime_dependency 'pidfile', '0.3.0'
   s.add_development_dependency 'minitest', '5.11.3'
   s.add_development_dependency 'rake', '13.0.1'
