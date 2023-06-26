@@ -40,4 +40,4 @@ Use this command to update the package:
 
 ## License
 Pls is copyright [David Rabkin](http://cv.rabkin.co.il) and
-available under a [Zero-Claus BSD license](https://github.com/rdavid/pls/blob/master/LICENSE).
+available under a [Zero-Clause BSD license](https://github.com/rdavid/pls/blob/master/LICENSE).
