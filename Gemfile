@@ -6,7 +6,7 @@
 source 'https://rubygems.org'
 ruby '~>3.0.0'
 
-gem 'httparty', '0.18.1'
+gem 'httparty', '0.21.0'
 gem 'minitest', '5.11.3'
 gem 'pidfile', '0.3.0'
 gem 'rake', '13.0.1'
