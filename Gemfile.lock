@@ -19,7 +19,6 @@ GEM
     parser (3.3.9.0)
       ast (~> 2.4.1)
       racc
-    pidfile (0.3.0)
     prism (1.4.0)
     racc (1.8.1)
     rainbow (3.1.1)
@@ -51,7 +50,6 @@ PLATFORMS
 DEPENDENCIES
   httparty
   minitest
-  pidfile
   rake
   rubocop
 

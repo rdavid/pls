@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2025 David Rabkin
+# SPDX-License-Identifier: 0BSD
+---
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+  - package-ecosystem: bundler
+    directory: /
+    schedule:
+      interval: daily

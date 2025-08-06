@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 # vi:ts=2 sw=2 tw=79 et lbr wrap
-# Copyright 2021 by David Rabkin
+# SPDX-FileCopyrightText: 2021-2025 David Rabkin
+# SPDX-License-Identifier: 0BSD
 
 module Pls
-  VERSION = '1.0.2'
-  DATE = '2021-02-17'
+  VERSION = '1.0.3'
+  DATE = '2025-08-06'
 end

@@ -1,4 +1,4 @@
-# Pls ![Ruby](https://github.com/rdavid/pls/workflows/Ruby/badge.svg) [![Gem Version](https://badge.fury.io/rb/pls.svg)](https://badge.fury.io/rb/pls) [![Hits-of-Code](https://hitsofcode.com/github/rdavid/pls)](https://hitsofcode.com/view/github/rdavid/pls) [![License](https://img.shields.io/badge/license-0BSD-green)](https://github.com/rdavid/pls/blob/master/LICENSE)
+# Pls ![rake](https://github.com/rdavid/pls/workflows/rake/badge.svg) [![Gem Version](https://badge.fury.io/rb/pls.svg)](https://badge.fury.io/rb/pls) [![Hits-of-Code](https://hitsofcode.com/github/rdavid/pls)](https://hitsofcode.com/view/github/rdavid/pls) [![License](https://img.shields.io/badge/license-0BSD-green)](https://github.com/rdavid/pls/blob/master/LICENSE)
 Prints the full NodeJS package dependency tree based on a given package name.
 
 * [About](#about)
