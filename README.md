@@ -17,7 +17,7 @@ package manager, for the given package.
 
 ## Installation
 The tool is designed to work on macOS, GNU/Linux, Windows, Unix-like OS. It is
-packaged as a Gem and require Ruby version 2.6 or later.  See “[Installing
+packaged as a Gem and require Ruby version 3.2 or later.  See “[Installing
 Ruby](https://www.ruby-lang.org/en/documentation/installation/)” if you don't
 have the proper version on your platform.
 

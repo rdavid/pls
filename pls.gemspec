@@ -1,15 +1,16 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__) + '/lib')
+$LOAD_PATH.unshift File.expand_path('lib', __dir__)
 
 require 'pls'
 
 Gem::Specification.new do |s|
+  s.required_rubygems_version = Gem::Requirement.new('>= 0') if s.respond_to? :required_rubygems_version=
+  s.required_ruby_version = '>= 3.2'
   s.name = 'pls'
   s.version = Pls::VERSION
   s.date = Pls::DATE
-  s.required_ruby_version = '~> 3.0'
-  s.summary = 'Package lister.'
+  s.summary = 'Package lister'
   s.description = <<-HERE
     Prints dependant package names.
   HERE
@@ -17,13 +18,9 @@ Gem::Specification.new do |s|
   s.author = 'David Rabkin'
   s.email = 'david@rabkin.co.il'
   s.homepage = 'https://github.com/rdavid/pls'
-  s.files = Dir['{bin,lib}/**/*'] + Dir['[A-Z]*'] + ['pls.gemspec']
-  s.executables = ['pls']
-  s.extra_rdoc_files = ['LICENSE', 'README.md']
   s.require_paths = ['lib']
-  s.add_runtime_dependency 'httparty', '0.21.0'
-  s.add_runtime_dependency 'pidfile', '0.3.0'
-  s.add_development_dependency 'minitest', '5.11.3'
-  s.add_development_dependency 'rake', '13.0.1'
-  s.add_development_dependency 'rubocop', '0.76.0'
+  s.files = `git ls-files`.split($RS)
+  s.executables = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  s.extra_rdoc_files = ['LICENSE', 'README.md']
+  s.metadata['rubygems_mfa_required'] = 'true'
 end
