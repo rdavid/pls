@@ -1,0 +1,86 @@
+// Settings:
+:toc: macro
+:!toc-title:
+// URLs:
+:img-gem: https://badge.fury.io/rb/pls.svg
+:img-hoc: https://hitsofcode.com/github/rdavid/pls?branch=master&label=hits%20of%20code
+:img-license: https://img.shields.io/github/license/rdavid/pls?color=blue&labelColor=gray&logo=freebsd&logoColor=lightgray&style=flat
+:img-rake: https://github.com/rdavid/pls/actions/workflows/rake.yml/badge.svg
+:img-rubocop: https://github.com/rdavid/pls/actions/workflows/rubocop.yml/badge.svg
+:img-style: https://img.shields.io/badge/code_style-rubocop-brightgreen.svg
+:url-cv: http://cv.rabkin.co.il
+:url-gem: https://badge.fury.io/rb/pls
+:url-hoc: https://hitsofcode.com/view/github/rdavid/pls?branch=master
+:url-license: https://github.com/rdavid/pls/blob/master/LICENSES/0BSD.txt
+:url-rake: https://github.com/rdavid/pls/actions/workflows/rake.yml
+:url-reuse: https://github.com/fsfe/reuse-action
+:url-rubocop: https://github.com/rdavid/pls/actions/workflows/rubocop.yml
+:url-ruby: https://www.ruby-lang.org/en/documentation/installation
+:url-style: https://github.com/rubocop/rubocop
+:url-vale: https://vale.sh
+:url-yamllint: https://github.com/adrienverge/yamllint
+
+= Package Lister
+
+image:{img-rake}[rake,link={url-rake}]
+image:{img-rubocop}[rubocop,link={url-rubocop}]
+image:{img-gem}[gem version,link={url-gem}]
+image:{img-style}[code style,link={url-style}]
+image:{img-hoc}[hits of code,link={url-hoc}]
+image:{img-license}[license,link={url-license}]
+
+toc::[]
+
+== About
+Package Lister prints the full NodeJS package dependency tree based on a given
+package name.
+Developers working with NodeJS use packages in their code.
+A package is a functional NodeJS module that includes versioning,
+documentation, dependencies (in the form of other packages), and more.
+NodeJS has a managed packages environment called npm.
+npm is regularly updated with new packages and new versions of existing
+packages.
+The user provides the name of the package for analysis.
+The tool fetches the overall set of dependencies from the relevant package
+manager, for the given package.
+
+== Installation
+The tool is designed to work on macOS, GNU/Linux, Windows, Unix-like OS.
+It is packaged as a Gem and requires Ruby version 3.2 or later.
+If you do not have the appropriate version on your platform, refer to
+{url-ruby}[Installing Ruby].
+
+Use this command to install:
+
+[,sh]
+----
+    gem install pls
+----
+
+== Updating
+Use this command to update the package:
+
+[,sh]
+----
+    gem update pls
+----
+
+== Usage
+
+[,sh]
+----
+    pls [options]
+      -p, --pac package                Package name.
+      -v, --version                    Shows version.
+----
+
+== Example
+
+[,sh]
+----
+    pls -p express
+----
+
+== License
+`pls` is copyright {url-cv}[David Rabkin] and available under a
+{url-license}[Zero-Clause BSD license].

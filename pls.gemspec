@@ -25,6 +25,6 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.files = `git ls-files`.split($RS)
   s.executables = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  s.extra_rdoc_files = ['LICENSE', 'README.md']
+  s.extra_rdoc_files = ['LICENSE', 'README.adoc']
   s.metadata['rubygems_mfa_required'] = 'true'
 end
