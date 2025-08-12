@@ -8,4 +8,6 @@ source 'https://rubygems.org'
 gem 'httparty'
 gem 'minitest'
 gem 'rake'
-gem 'rubocop'
+group :rubocop do
+  gem 'rubocop'
+end
