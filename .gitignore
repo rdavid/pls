@@ -1,6 +1,4 @@
-coverage/
-.idea/
 *.gem
+.idea/
 .bundle/
 .DS_Store
-rdoc/

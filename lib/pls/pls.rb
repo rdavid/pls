@@ -36,7 +36,7 @@ module Pls
       res.body
     end
 
-    def build_dep(dep) # rubocop:disable Metrics/MethodLength
+    def build_dep(dep)
       arr = []
       threads = []
       mut = Mutex.new
