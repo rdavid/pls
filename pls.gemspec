@@ -13,7 +13,6 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 3.2'
   s.name = 'pls'
   s.version = Pls::VERSION
-  s.date = Pls::DATE
   s.summary = 'Package lister'
   s.description = <<-HERE
     Prints dependant package names.
