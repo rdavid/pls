@@ -4,6 +4,7 @@ GEM
     ast (2.4.3)
     bigdecimal (4.0.1)
     csv (3.3.5)
+    drb (2.2.3)
     httparty (0.24.2)
       csv
       mini_mime (>= 1.0.0)
@@ -12,7 +13,8 @@ GEM
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
     mini_mime (1.1.5)
-    minitest (6.0.1)
+    minitest (6.0.2)
+      drb (~> 2.0)
       prism (~> 1.5)
     multi_xml (0.8.1)
       bigdecimal (>= 3.1, < 5)
