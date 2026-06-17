@@ -33,6 +33,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6.0.3
+        with:
+          persist-credentials: false
       - uses: ruby/setup-ruby@v1.313.0
         with:
           ruby-version: ${{ matrix.ruby }}
