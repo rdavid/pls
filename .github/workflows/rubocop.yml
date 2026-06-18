@@ -19,7 +19,7 @@ jobs:
     env:
       BUNDLE_ONLY: rubocop
     steps:
-      - uses: actions/checkout@v6.0.3
+      - uses: actions/checkout@v7.0.0
         with:
           persist-credentials: false
       - uses: ruby/setup-ruby@v1.313.0
