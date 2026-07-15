@@ -4,8 +4,19 @@
 name: rubocop
 'on':
   pull_request:
+    paths: &paths
+      - 'bin/**'
+      - 'lib/**'
+      - 'test/**'
+      - 'Gemfile'
+      - 'Gemfile.lock'
+      - 'Rakefile'
+      - 'pls.gemspec'
+      - '.rubocop.yml'
+      - '.github/workflows/rubocop.yml'
   push:
     branches: [master]
+    paths: *paths
   workflow_dispatch:
 permissions:
   contents: read

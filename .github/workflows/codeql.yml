@@ -4,8 +4,18 @@
 name: codeql
 'on':
   pull_request:
+    paths: &paths
+      - 'bin/**'
+      - 'lib/**'
+      - 'test/**'
+      - 'Gemfile'
+      - 'Gemfile.lock'
+      - 'Rakefile'
+      - 'pls.gemspec'
+      - '.github/workflows/codeql.yml'
   push:
     branches: [master]
+    paths: *paths
   schedule:
     - cron: '0 4 * * 1'
   workflow_dispatch:
