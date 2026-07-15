@@ -5,6 +5,7 @@
 # SPDX-License-Identifier: 0BSD
 
 require 'minitest/autorun'
+require 'webmock/minitest'
 require_relative '../lib/pls/pls'
 
 # Verifies package listing works end to end.
@@ -15,21 +16,19 @@ class TestPls < Minitest::Test
   end
 
   def test_pls
-    @pls.do
+    stub_request(:get, 'https://registry.npmjs.org/express/latest')
+      .to_return(status: 200, body: '{"dependencies":{}}')
+    out, = capture_io { @pls.do }
+
+    assert_match(/express/, out)
   end
 
   def test_build_reuses_cache_for_packages_without_dependencies
-    original = HTTParty.method(:get)
-    calls = 0
-    res = Struct.new(:code, :body).new(200, '{"dependencies":{}}')
-    HTTParty.define_singleton_method(:get) do |*_args|
-      calls += 1
-      res
-    end
+    stub = stub_request(:get, 'https://registry.npmjs.org/leaf/latest')
+           .to_return(status: 200, body: '{"dependencies":{}}')
     @pls.build('leaf')
     @pls.build('leaf')
-    assert_equal 1, calls
-  ensure
-    HTTParty.define_singleton_method(:get, original)
+
+    assert_requested(stub, times: 1)
   end
 end
