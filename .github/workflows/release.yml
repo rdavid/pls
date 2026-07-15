@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 David Rabkin
+# SPDX-License-Identifier: 0BSD
+---
+name: release
+'on':
+  push:
+    tags: ['*.*.*']
+permissions:
+  contents: write
+  id-token: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7.0.0
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1.318.0
+        with:
+          ruby-version: 3.2
+          bundler-cache: true
+      - uses: rubygems/release-gem@v1.4.0
