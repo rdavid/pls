@@ -64,7 +64,7 @@ module Pls
 
     def build(pac)
       arr = read_cache(pac)
-      if arr.to_a.empty?
+      if arr.nil?
         str = read_http(pac)
         doc = JSON.parse(str)
         dep = doc['dependencies']

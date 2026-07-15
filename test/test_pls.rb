@@ -17,4 +17,19 @@ class TestPls < Minitest::Test
   def test_pls
     @pls.do
   end
+
+  def test_build_reuses_cache_for_packages_without_dependencies
+    original = HTTParty.method(:get)
+    calls = 0
+    res = Struct.new(:code, :body).new(200, '{"dependencies":{}}')
+    HTTParty.define_singleton_method(:get) do |*_args|
+      calls += 1
+      res
+    end
+    @pls.build('leaf')
+    @pls.build('leaf')
+    assert_equal 1, calls
+  ensure
+    HTTParty.define_singleton_method(:get, original)
+  end
 end
