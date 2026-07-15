@@ -32,23 +32,20 @@ image:{img-license}[license,link={url-license}]
 toc::[]
 
 == About
-Package Lister prints the full NodeJS package dependency tree based on a given
-package name.
-Developers working with NodeJS use packages in their code.
-A package is a functional NodeJS module that includes versioning,
-documentation, dependencies (in the form of other packages), and more.
-NodeJS has a managed packages environment called npm.
-npm is regularly updated with new packages and new versions of existing
-packages.
-The user provides the name of the package for analysis.
-The tool fetches the overall set of dependencies from the relevant package
-manager, for the given package.
+Package Lister prints the full dependency tree of a given NodeJS package.
+NodeJS developers use packages, which are modules that bundle versioning,
+documentation, dependencies on other packages, and more.
+npm, NodeJS's package manager, is updated continually with new packages
+and new versions of existing ones.
+Given a package name, the tool fetches its complete set of dependencies
+from npm.
 
 == Installation
-The tool is designed to work on macOS, GNU/Linux, Windows, Unix-like OS.
-It is packaged as a Gem and requires Ruby version 3.2 or later.
-If you do not have the appropriate version on your platform, refer to
-{url-ruby}[Installing Ruby].
+The tool works on macOS, GNU/Linux, Windows, and other Unix-like operating
+systems.
+It is packaged as a gem and requires Ruby 3.2 or later.
+If you don't have the required Ruby version, see {url-ruby}[Installing
+Ruby].
 
 Use this command to install:
 
