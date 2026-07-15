@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # vi:ts=2 sw=2 tw=79 et lbr wrap
-# SPDX-FileCopyrightText: 2021-2025 David Rabkin
+# SPDX-FileCopyrightText: 2021-2026 David Rabkin
 # SPDX-License-Identifier: 0BSD
 
 require 'httparty'
@@ -10,7 +10,8 @@ require_relative 'configurator'
 require_relative 'reporter'
 
 module Pls
-  # Data structure is hash, key - package name, val - array of hashes:
+  # The data structure is a hash: the key is the package name, the value is
+  # an array of hashes, for example:
   # {
   #   aaa => [
   #            bbb => [],
@@ -50,7 +51,7 @@ module Pls
       arr
     end
 
-    # Consider time validation for cache data.
+    # Consider adding time-based invalidation for cached data.
     def read_cache(pac)
       arr = []
       @mut_dat.synchronize { arr = @dat[pac] }

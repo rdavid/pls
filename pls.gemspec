@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # vi:ts=2 sw=2 tw=79 et lbr wrap
-# SPDX-FileCopyrightText: 2021-2025 David Rabkin
+# SPDX-FileCopyrightText: 2021-2026 David Rabkin
 # SPDX-License-Identifier: 0BSD
 
 $LOAD_PATH.unshift File.expand_path('lib', __dir__)
@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.version = Pls::VERSION
   s.summary = 'Package lister'
   s.description = <<-HERE
-    Prints dependant package names.
+    Prints dependent package names.
   HERE
   s.license = '0BSD'
   s.author = 'David Rabkin'

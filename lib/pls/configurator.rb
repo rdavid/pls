@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # vi:ts=2 sw=2 tw=79 et lbr wrap
-# SPDX-FileCopyrightText: 2021-2025 David Rabkin
+# SPDX-FileCopyrightText: 2021-2026 David Rabkin
 # SPDX-License-Identifier: 0BSD
 
 require 'optparse'
@@ -30,7 +30,7 @@ module Pls
         DIC.each { |f, p, d, t, k| o.on(f, p, t, d) { |i| @options[k] = i } }
         add(o)
       end.parse!
-      raise 'Please specify a package name with -p flag.' if pac.nil?
+      raise 'Please specify a package name with the -p flag.' if pac.nil?
     end
 
     def pac
