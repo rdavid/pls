@@ -5,6 +5,6 @@
 # SPDX-License-Identifier: 0BSD
 
 module Pls
-  VERSION = '1.0.4'
+  VERSION = '1.0.5'
   DATE = '2026-07-15'
 end
