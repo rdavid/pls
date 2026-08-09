@@ -46,8 +46,8 @@ Given a package name, the tool fetches its complete set of dependencies
 from npm.
 
 == Installation
-The tool works on macOS, GNU/Linux, Windows, and other Unix-like operating
-systems.
+The tool works on macOS, GNU/Linux, other Unix-like operating systems, and
+Windows.
 It is packaged as a gem and requires Ruby 3.2 or later.
 If you don't have the required Ruby version, see {url-ruby}[Installing
 Ruby].
@@ -73,7 +73,7 @@ Use this command to update the package:
 ----
     pls [options]
       -p, --pac package                Package name.
-      -v, --version                    Shows version.
+      -v, --version                    Show version.
 ----
 
 == Example
