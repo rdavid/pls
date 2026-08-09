@@ -32,7 +32,7 @@ module Pls
     def read_http(pac)
       url = "#{@cfg.url}/#{pac}/latest"
       res = HTTParty.get(url)
-      raise "Unable to continue with #{url}." unless res.code == 200
+      raise "Unable to fetch #{url}." unless res.code == 200
 
       res.body
     end
