@@ -50,10 +50,10 @@ endif::[]
 
 == About
 Package Lister prints the full dependency tree of a given NodeJS package.
-NodeJS developers use packages, which are modules that bundle versioning,
-documentation, dependencies on other packages, and more.
-npm, NodeJS's package manager, is updated continually with new packages
-and new versions of existing ones.
+NodeJS developers rely on packages: modules published with their own
+version, documentation, and dependencies on other packages.
+npm, NodeJS's package manager, gains new packages and new versions of
+existing ones every day.
 Given a package name, the tool fetches its complete set of dependencies
 from npm.
 
@@ -175,7 +175,7 @@ ifdef::pages-build[]
       </li>
       <li>
         <span class="num">2</span>
-        <p>Every dependency is indented two spaces per depth level, exactly what <code>Reporter#out</code>'s recursive <code>del + 2</code> calls draw.</p>
+        <p>Every dependency is indented two spaces per depth level, drawn by <code>Reporter#out</code>'s recursive <code>del + 2</code> calls.</p>
       </li>
       <li>
         <span class="num">3</span>

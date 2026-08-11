@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.version = Pls::VERSION
   s.summary = 'Package lister'
   s.description = <<-HERE
-    Prints dependent package names.
+    Prints the full dependency tree of an npm package.
   HERE
   s.license = '0BSD'
   s.author = 'David Rabkin'
