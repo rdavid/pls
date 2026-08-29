@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: 0BSD
 
 module Pls
-  # Formats and prints output data.
+  # Prints an indented dependency tree and reports the elapsed run time.
   class Reporter
     def initialize
       @beg = Time.now.to_i

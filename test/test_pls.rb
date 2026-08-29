@@ -8,7 +8,7 @@ require 'minitest/autorun'
 require 'webmock/minitest'
 require_relative '../lib/pls/pls'
 
-# Verifies package listing works end to end.
+# Verifies package listing and dependency caching end to end.
 class TestPls < Minitest::Test
   def setup
     ARGV << '-pexpress'

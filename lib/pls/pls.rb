@@ -10,8 +10,8 @@ require_relative 'configurator'
 require_relative 'reporter'
 
 module Pls
-  # The data structure is a hash: the key is the package name, the value is
-  # an array of hashes, for example:
+  # Each dependency tree is a hash: the key is the package name, the value
+  # is an array of hashes, for example:
   # {
   #   aaa => [
   #            bbb => [],

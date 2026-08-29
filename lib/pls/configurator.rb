@@ -7,7 +7,7 @@
 require 'optparse'
 
 module Pls
-  # Handles input parameters.
+  # Parses command-line options for the package name and version flags.
   class Configurator
     attr_reader :files
 
