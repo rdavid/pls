@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2026 David Rabkin
 # SPDX-License-Identifier: 0BSD
+
+# The codeql job needs security-events: write to upload SARIF results.
 ---
 name: codeql
 'on':
@@ -21,7 +23,6 @@ name: codeql
   workflow_dispatch:
 permissions:
   contents: read
-  security-events: write
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -29,6 +30,8 @@ jobs:
   codeql:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    permissions:
+      security-events: write
     steps:
       - uses: actions/checkout@v7.0.1
         with:

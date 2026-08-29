@@ -1,5 +1,8 @@
 # SPDX-FileCopyrightText: 2026 David Rabkin
 # SPDX-License-Identifier: 0BSD
+
+# The deploy job needs pages: write to publish the built site and
+# id-token: write for the OIDC token actions/deploy-pages requires.
 ---
 name: pages
 'on':

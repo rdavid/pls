@@ -1,5 +1,8 @@
 # SPDX-FileCopyrightText: 2025-2026 David Rabkin
 # SPDX-License-Identifier: 0BSD
+
+# The rubocop job needs pull-requests: write so reviewdog can post
+# review comments.
 ---
 name: rubocop
 'on':
@@ -20,7 +23,6 @@ name: rubocop
   workflow_dispatch:
 permissions:
   contents: read
-  pull-requests: write
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -28,6 +30,8 @@ jobs:
   rubocop:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    permissions:
+      pull-requests: write
     env:
       BUNDLE_ONLY: rubocop
     steps:
