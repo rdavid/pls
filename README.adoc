@@ -4,10 +4,9 @@
 // URLs:
 :img-gem: https://img.shields.io/gem/v/pls?color=dfaf8f&labelColor=555555&logo=rubygems&logoColor=dcdccc&style=flat
 :img-hoc: https://hitsofcode.com/github/rdavid/pls?branch=master&label=hits%20of%20code
-:img-license: https://img.shields.io/github/license/rdavid/pls?color=8cd0d3&labelColor=555555&logo=freebsd&logoColor=dcdccc&style=flat
+:img-license: https://img.shields.io/github/license/rdavid/pls?color=94bff3&labelColor=555555&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHRleHQgeD0iMTIiIHk9IjIwIiBmb250LWZhbWlseT0iSGVsdmV0aWNhLEFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNkY2RjY2MiPiYjMTY5OzwvdGV4dD48L3N2Zz4%3D&style=flat
 :img-rake: https://img.shields.io/github/actions/workflow/status/rdavid/pls/rake.yml?branch=master&label=rake&color=7f9f7f&labelColor=555555&logo=github&logoColor=dcdccc&style=flat
-:img-rubocop: https://img.shields.io/github/actions/workflow/status/rdavid/pls/rubocop.yml?branch=master&label=rubocop&color=93e0e3&labelColor=555555&logo=github&logoColor=dcdccc&style=flat
-:img-style: https://img.shields.io/badge/code_style-rubocop-7f9f7f.svg?labelColor=555555
+:img-rubocop: https://img.shields.io/github/actions/workflow/status/rdavid/pls/rubocop.yml?branch=master&label=rubocop&color=93e0e3&labelColor=555555&logo=rubocop&logoColor=dcdccc&style=flat
 :url-cv: http://cv.rabkin.co.il
 :url-gem: https://badge.fury.io/rb/pls
 :url-hoc: https://hitsofcode.com/view/github/rdavid/pls?branch=master
@@ -16,7 +15,6 @@
 :url-reuse: https://github.com/fsfe/reuse-action
 :url-rubocop: https://github.com/rdavid/pls/actions/workflows/rubocop.yml
 :url-ruby: https://www.ruby-lang.org/en/documentation/installation
-:url-style: https://github.com/rubocop/rubocop
 :url-vale: https://vale.sh
 :url-yamllint: https://github.com/adrienverge/yamllint
 
@@ -28,7 +26,6 @@
 <a href="{url-rake}"><img src="{img-rake}" alt="rake"></a>
 <a href="{url-rubocop}"><img src="{img-rubocop}" alt="rubocop"></a>
 <a href="{url-gem}"><img src="{img-gem}" alt="gem version"></a>
-<a href="{url-style}"><img src="{img-style}" alt="code style"></a>
 <a href="{url-hoc}"><img src="{img-hoc}" alt="hits of code"></a>
 <a href="{url-license}"><img src="{img-license}" alt="license"></a>
 </div>
