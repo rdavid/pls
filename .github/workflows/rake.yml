@@ -39,6 +39,7 @@ jobs:
           - 3.2
           - 3.3
           - 3.4
+          - 4.0
     name: Rake on ${{ matrix.os }} / Ruby ${{ matrix.ruby }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
