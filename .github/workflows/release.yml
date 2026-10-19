@@ -29,6 +29,9 @@ jobs:
         with:
           ruby-version: 3.2
           bundler-cache: false
+      - run: |
+          bundle install
+          bundle exec rake
       - uses: rubygems/release-gem@v1.4.1
       - run: gh release create "${GITHUB_REF_NAME}" pkg/*.gem
           --generate-notes
