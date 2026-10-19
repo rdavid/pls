@@ -10,8 +10,9 @@ require_relative 'configurator'
 require_relative 'reporter'
 
 module Pls
-  # Each dependency tree is a hash: the key is the package name, the value
-  # is an array of hashes, for example:
+  # Builds the dependency tree of an npm package.
+  # Each tree is a hash that maps a package name to an array of subtrees.
+  # For example:
   # {
   #   aaa => [
   #            bbb => [],
@@ -51,7 +52,7 @@ module Pls
       arr
     end
 
-    # Consider adding time-based invalidation for cached data.
+    # Cached data never expires, so time-based invalidation could help.
     def read_cache(pac)
       arr = []
       @mut_dat.synchronize { arr = @dat[pac] }

@@ -12,11 +12,11 @@ module Pls
     attr_reader :files
 
     DIC = [
-      ['-p', '--pac package', 'Package name.', String, :pac]
+      ['-p', '--pac package', 'Sets the package name.', String, :pac]
     ].freeze
 
     def add(opt)
-      opt.on('-v', '--version', 'Show version.') do
+      opt.on('-v', '--version', 'Shows the version.') do
         puts "#{File.basename($PROGRAM_NAME)} #{VERSION} #{DATE}"
         exit
       end
@@ -30,7 +30,7 @@ module Pls
         DIC.each { |f, p, d, t, k| o.on(f, p, t, d) { |i| @options[k] = i } }
         add(o)
       end.parse!
-      raise 'Please specify a package name with the -p flag.' if pac.nil?
+      raise 'Specify a package name with the -p flag.' if pac.nil?
     end
 
     def pac

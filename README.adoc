@@ -50,22 +50,18 @@ endif::[]
 
 == About
 Package Lister prints the full dependency tree of a given NodeJS package.
-NodeJS developers rely on packages: modules published with their own
-version, documentation, and dependencies on other packages.
-npm, NodeJS's package manager, gains new packages and new versions of
-existing ones every day.
+NodeJS packages are modules published to npm, each with its own version,
+documentation, and dependencies on other packages.
 Given a package name, the tool fetches its complete set of dependencies
 from npm.
 ifndef::pages-build[The project has a {url-site}[website].]
 
 == Install
-The tool works on macOS, GNU/Linux, other Unix-like operating systems, and
-Windows.
-It is packaged as a gem and requires Ruby 3.2 or later.
-If you don't have the required Ruby version, see {url-ruby}[Installing
-Ruby].
+The tool runs on macOS, GNU/Linux, other Unix-like systems, and Windows.
+It is packaged as a Ruby gem and requires Ruby 3.2 or later.
+If your platform lacks a suitable Ruby, see {url-ruby}[Installing Ruby].
 
-Use this command to install:
+Install the gem with:
 
 [,sh]
 ----
@@ -85,8 +81,8 @@ Or install it with {url-homebrew}[Homebrew] from the
 [,sh]
 ----
     pls [options]
-      -p, --pac package                Package name.
-      -v, --version                    Show version.
+      -p, --pac package                Sets the package name.
+      -v, --version                    Shows the version.
 ----
 
 == Example
