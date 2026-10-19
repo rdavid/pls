@@ -10,11 +10,14 @@
 :url-cv: http://cv.rabkin.co.il
 :url-gem: https://badge.fury.io/rb/pls
 :url-hoc: https://hitsofcode.com/view/github/rdavid/pls?branch=master
+:url-homebrew: https://brew.sh
 :url-license: https://github.com/rdavid/pls/blob/master/LICENSES/0BSD.txt
 :url-rake: https://github.com/rdavid/pls/actions/workflows/rake.yml
 :url-reuse: https://github.com/fsfe/reuse-action
 :url-rubocop: https://github.com/rdavid/pls/actions/workflows/rubocop.yml
 :url-ruby: https://www.ruby-lang.org/en/documentation/installation
+:url-site: https://rdavid.github.io/pls
+:url-tap: https://rdavid.github.io/homebrew-tap
 :url-vale: https://vale.sh
 :url-yamllint: https://github.com/adrienverge/yamllint
 
@@ -53,6 +56,7 @@ npm, NodeJS's package manager, gains new packages and new versions of
 existing ones every day.
 Given a package name, the tool fetches its complete set of dependencies
 from npm.
+ifndef::pages-build[The project has a {url-site}[website].]
 
 == Install
 The tool works on macOS, GNU/Linux, other Unix-like operating systems, and
@@ -68,15 +72,15 @@ Use this command to install:
     gem install pls
 ----
 
-== Updating
-Use this command to update the package:
+Or install it with {url-homebrew}[Homebrew] from the
+{url-tap}[rdavid tap]:
 
 [,sh]
 ----
-    gem update pls
+    brew install rdavid/tap/pls
 ----
 
-== Using
+== Usage
 
 [,sh]
 ----
