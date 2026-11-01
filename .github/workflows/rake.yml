@@ -28,11 +28,15 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - macos-14
           - macos-15
+          - macos-26
           - macos-15-intel
+          - macos-26-intel
           - ubuntu-22.04
+          - ubuntu-22.04-arm
           - ubuntu-24.04
+          - ubuntu-24.04-arm
+          - windows-11-arm
           - windows-2022
           - windows-2025
         ruby:
@@ -40,6 +44,11 @@ jobs:
           - 3.3
           - 3.4
           - 4.0
+        exclude:
+          - os: windows-11-arm
+            ruby: 3.2
+          - os: windows-11-arm
+            ruby: 3.3
     name: Rake on ${{ matrix.os }} / Ruby ${{ matrix.ruby }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
