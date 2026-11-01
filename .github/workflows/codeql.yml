@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2026 David Rabkin
 # SPDX-License-Identifier: 0BSD
-
+#
 # The codeql job needs security-events: write to upload SARIF results.
 ---
 name: codeql

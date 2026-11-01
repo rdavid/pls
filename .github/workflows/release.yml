@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2026 David Rabkin
 # SPDX-License-Identifier: 0BSD
-
+#
 # The release job needs contents: write to create the GitHub Release and
 # upload gem assets, and id-token: write for OIDC trusted publishing to
 # RubyGems.
