@@ -13,13 +13,10 @@
 :url-homebrew: https://brew.sh
 :url-license: https://github.com/rdavid/pls/blob/master/LICENSES/0BSD.txt
 :url-rake: https://github.com/rdavid/pls/actions/workflows/rake.yml
-:url-reuse: https://github.com/fsfe/reuse-action
 :url-rubocop: https://github.com/rdavid/pls/actions/workflows/rubocop.yml
 :url-ruby: https://www.ruby-lang.org/en/documentation/installation
 :url-site: https://rdavid.github.io/pls
 :url-tap: https://rdavid.github.io/homebrew-tap
-:url-vale: https://vale.sh
-:url-yamllint: https://github.com/adrienverge/yamllint
 
 = Package Lister
 
@@ -49,11 +46,13 @@ ifdef::pages-build[]
 endif::[]
 
 == About
-Package Lister prints the full dependency tree of a given NodeJS package.
-NodeJS packages are modules published to npm, each with its own version,
-documentation, and dependencies on other packages.
-Given a package name, the tool fetches its complete set of dependencies
-from npm.
+Package Lister prints the full dependency tree of any npm package.
+Give it a package name, and it follows every runtime dependency through
+the npm registry, all the way down.
+Each package resolves at its latest published version.
+Lookups run concurrently, and packages already resolved come from an
+in-memory cache.
+The result is a plain indented tree on standard output.
 ifndef::pages-build[The project has a {url-site}[website].]
 
 == Install
@@ -65,7 +64,7 @@ Install the gem with:
 
 [,sh]
 ----
-    gem install pls
+gem install pls
 ----
 
 Or install it with {url-homebrew}[Homebrew] from the
@@ -73,23 +72,24 @@ Or install it with {url-homebrew}[Homebrew] from the
 
 [,sh]
 ----
-    brew install rdavid/tap/pls
+brew install rdavid/tap/pls
 ----
 
 == Usage
+Run `pls` with no options to print this help:
 
 [,sh]
 ----
-    pls [options]
-      -p, --pac package                Sets the package name.
-      -v, --version                    Shows the version.
+pls [options]
+  -p, --pac package                Sets the package name.
+  -v, --version                    Shows the version.
 ----
 
-== Example
+Print the dependency tree of `express`, with the output abridged here:
 
 [,sh]
 ----
-    pls -p express
+pls --pac express
 ----
 
 ifdef::pages-build[]
@@ -102,12 +102,12 @@ ifdef::pages-build[]
         <span class="dot yellow"></span>
         <span class="dot green"></span>
       </div>
-      <span class="tab">bin/pls &mdash; pls -p express</span>
+      <span class="tab">bin/pls &mdash; pls --pac express</span>
     </div>
     <div class="term-body">
       <div class="row">
         <span class="gutter"><span class="badge">1</span></span>
-        <span class="prompt"><span class="sym">$</span> pls -p express</span>
+        <span class="prompt"><span class="sym">$</span> pls --pac express</span>
       </div>
       <div class="row">
         <span class="gutter"></span>
@@ -155,6 +155,10 @@ ifdef::pages-build[]
       </div>
       <div class="row">
         <span class="gutter"></span>
+        <span class="pkg cached">&#32;&#32;&#32;&#32;&#32;&#32;mime-db</span>
+      </div>
+      <div class="row">
+        <span class="gutter"></span>
         <span class="pkg">&#32;&#32;&#32;&#32;fresh</span>
       </div>
       <div class="row">
@@ -168,7 +172,7 @@ ifdef::pages-build[]
     <ol>
       <li>
         <span class="num">1</span>
-        <p>No subcommands to learn &mdash; a single <code>-p</code> flag prints the whole tree to stdout.</p>
+        <p>No subcommands to learn &mdash; a single <code>--pac</code> flag prints the whole tree to stdout.</p>
       </li>
       <li>
         <span class="num">2</span>
@@ -180,7 +184,7 @@ ifdef::pages-build[]
       </li>
       <li>
         <span class="num">4</span>
-        <p><code>mime-types</code> shows up under both <code>accepts</code> and <code>send</code>, but <code>Pls#build</code> only calls the npm registry for it once &mdash; the second line comes straight from the in-memory cache.</p>
+        <p><code>mime-types</code> shows up under both <code>accepts</code> and <code>send</code> &mdash; once it is resolved, <code>Pls#build</code> reuses its subtree from the in-memory cache instead of calling the npm registry again.</p>
       </li>
       <li>
         <span class="num">5</span>
@@ -206,6 +210,7 @@ express
     qs
   send
     mime-types
+      mime-db
     fresh
 Done in 2 seconds.
 ----
