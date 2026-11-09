@@ -25,5 +25,5 @@ task default: %w[test]
 
 desc 'Run the test suite'
 task :test do
-  ruby 'test/test_pls.rb'
+  FileList['test/test_*.rb'].each { |file| ruby file }
 end
