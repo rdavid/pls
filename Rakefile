@@ -10,8 +10,8 @@ require 'bundler/gem_helper'
 CLOBBER.include 'pkg'
 
 module Bundler
-  # Bundler hardcodes the release tag as "v#{version}", this project
-  # tags releases with the bare version number instead.
+  # Drops the "v" prefix that Bundler adds to release tags.
+  # This project tags releases with the bare version number.
   class GemHelper
     def version_tag
       version.to_s

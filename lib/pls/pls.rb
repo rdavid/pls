@@ -11,16 +11,19 @@ require_relative 'reporter'
 
 module Pls
   # Builds the dependency tree of an npm package.
-  # Each tree is a hash that maps a package name to an array of subtrees.
+  # Each tree is a single-key hash that maps a package name to an array of
+  # subtrees.
   # For example:
   # {
   #   aaa => [
-  #            bbb => [],
-  #            ccc => [
-  #                     ddd => [],
-  #                     eee => []
-  #                   ]
-  #          ]
+  #     { bbb => [] },
+  #     {
+  #       ccc => [
+  #         { ddd => [] },
+  #         { eee => [] }
+  #       ]
+  #     }
+  #   ]
   # }
   class Pls
     def initialize
@@ -52,7 +55,9 @@ module Pls
       arr
     end
 
-    # Cached data never expires, so time-based invalidation could help.
+    # Returns the cached subtrees of a package, or nil when it has none yet.
+    # An empty array marks a resolved package without dependencies.
+    # The cache lasts for a single run, so entries never expire.
     def read_cache(pac)
       arr = []
       @mut_dat.synchronize { arr = @dat[pac] }
