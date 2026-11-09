@@ -40,15 +40,15 @@ jobs:
           - windows-2022
           - windows-2025
         ruby:
-          - 3.2
-          - 3.3
-          - 3.4
-          - 4.0
+          - '3.2'
+          - '3.3'
+          - '3.4'
+          - '4.0'
         exclude:
           - os: windows-11-arm
-            ruby: 3.2
+            ruby: '3.2'
           - os: windows-11-arm
-            ruby: 3.3
+            ruby: '3.3'
     name: Rake on ${{ matrix.os }} / Ruby ${{ matrix.ruby }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15

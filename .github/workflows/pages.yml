@@ -3,20 +3,23 @@
 #
 # The deploy job needs pages: write to publish the built site and
 # id-token: write for the OIDC token actions/deploy-pages requires.
+# Pull requests build the site without deploying it.
 ---
 name: pages
 'on':
-  push:
-    branches: [master]
-    paths:
+  pull_request:
+    paths: &paths
       - README.adoc
       - .github/pages/**
       - .github/workflows/pages.yml
+  push:
+    branches: [master]
+    paths: *paths
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: false
 defaults:
   run:
@@ -39,6 +42,7 @@ jobs:
             --attribute docinfo=private \
             --attribute docinfodir=.github/pages \
             --attribute pages-build \
+            --failure-level WARN \
             --out-file _site/index.html \
             README.adoc
       - uses: actions/configure-pages@v6.0.0
@@ -46,6 +50,7 @@ jobs:
         with:
           path: _site
   deploy:
+    if: github.event_name != 'pull_request'
     needs: build
     permissions:
       pages: write
