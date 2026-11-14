@@ -1,9 +1,9 @@
 # SPDX-FileCopyrightText: 2026 David Rabkin
 # SPDX-License-Identifier: 0BSD
 #
-# The release job needs contents: write to create the GitHub Release and
-# upload gem assets, and id-token: write for OIDC trusted publishing to
-# RubyGems.
+# The test job runs the suite without write access. The release job needs
+# contents: write to create the GitHub Release and upload gem assets, and
+# id-token: write for OIDC trusted publishing to RubyGems.
 ---
 name: release
 'on':
@@ -15,7 +15,22 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: false
 jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1.338.0
+        with:
+          ruby-version: '3.2'
+          bundler-cache: false
+      - run: |
+          bundle install
+          bundle exec rake
   release:
+    needs: test
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
@@ -27,11 +42,9 @@ jobs:
           persist-credentials: false
       - uses: ruby/setup-ruby@v1.338.0
         with:
-          ruby-version: 3.2
+          ruby-version: '3.2'
           bundler-cache: false
-      - run: |
-          bundle install
-          bundle exec rake
+      - run: bundle install
       - uses: rubygems/release-gem@v1.4.1
       - run: gh release create "${GITHUB_REF_NAME}" pkg/*.gem
           --generate-notes

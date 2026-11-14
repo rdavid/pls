@@ -40,7 +40,7 @@ jobs:
           persist-credentials: false
       - uses: ruby/setup-ruby@v1.338.0
         with:
-          ruby-version: 3.2
+          ruby-version: '3.2'
           bundler-cache: true
       - uses: reviewdog/action-rubocop@v2.22.0
         with:
